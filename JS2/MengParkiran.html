@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parkiran Mang BEJO</title>
+</head>
+<body>
+    <h3>Biaya Parkir</h3>
+    Masuk Parkir : <input type="number" value="" size="10" id="masuk"/>
+    <br>
+    Keluar Parkir : <input type="number" value="" size="10" id="keluar"/>
+    <br>
+    <button onclick="biayaParkir()">Biaya Parkir</button> : <span id="biaya"></span>
+
+    <script>
+        function biayaParkir(){
+        let masukk = document.getElementById("masuk").value;
+        let keluarr = document.getElementById("keluar").value;
+        let selisih = keluarr - masukk;
+        let biaya = 0;
+            
+            const TARIFAWAL = 3000;
+            const TARIFPERJAM = 1000;
+
+            if(selisih <= 2){
+                biaya = TARIFAWAL;
+            }
+            else{
+                let tambahan_jam = selisih - 2;
+                biaya = TARIFAWAL + (TARIFPERJAM * tambahan_jam);
+            }
+
+            let area_biaya = document.getElementById("biaya");
+            area_biaya.innerHTML = "BIAYA PARKIR " + biaya;
+        }
+    </script>
+</body>
+</html>
